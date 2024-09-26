@@ -18,7 +18,7 @@ add column status integer check (status in (0,1));
 alter table clients
 alter column status type boolean using status :: boolean;-- команда изменяющая тип данных
 
---5 set default value as false to "status" column
+--5 set default value as trueto "status" column
 alter table clients
 alter column status set default true;
 
