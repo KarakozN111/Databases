@@ -59,17 +59,22 @@ select * from students where last_name='Johnson';
 --6 select all data of students whose last name is 'Johnson' or 'Smith'
 select * from students where last_name in ('Johnson', 'Smith');
 
---7 select all data of students who are registered in the 'CS101' course
-select students.* from students
-join registration on students.student_id= registration.student_id
-join courses on registration.course_id= courses.course_id
-where courses.course_code='CS101';
+--7
+select * from students
+where student_id in(
+    select student_id from registration
+    where course_id=(select course_id from courses where course_code='CS101')
+    );
+--8
+select * from students
+where student_id in(
+    select student_id from registration
+    where course_id in (
+        select course_id from courses
+        where course_code in('MATH201','PHYS301')
+        )
+    );
 
---8 select all data of students who are registered in the MATH201 or PHYS301 courses
-select students.* from students
-join registration on students.student_id=registration.student_id
-join courses on registration.course_id=courses.course_id
-where courses.course_code in ('MATH201', 'PHYS301');
 
 --9 select the total number of credits for all courses
 select sum(credits) as total_credits from courses;
