@@ -63,7 +63,7 @@ create index idx_movie_releaseYear on movie(releaseYear);
 --4 Define a new role with privileges to log in and create additional roles.
 create role new_role with login password 'password';
 alter role new_role with createdb;
-alter role new_role createrole;
+alter role new_role with createrole;
 
 --5 Grant this new role all permissions that are typically available to a default user role.
 grant all privileges on all tables in schema public to new_role;
