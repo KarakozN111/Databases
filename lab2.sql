@@ -1,4 +1,4 @@
---1 create database lab_2
+
 create database lab_2;
 
 --2 create table employees
