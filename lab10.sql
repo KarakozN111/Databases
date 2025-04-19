@@ -1,4 +1,3 @@
-
 CREATE TABLE Movies (
     movie_id INT PRIMARY KEY,
     title VARCHAR(255),
